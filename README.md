@@ -1,8 +1,11 @@
+# Itzushi Project 「出石 PROJECT」
+<p align="center">
+<img width="1083" height="1083" alt="bmlnZ2EgaSBkaWRudCB3YW50IHRoaXMgdG8gYmUgYW4gc3MxNCBmb3Jr" src="https://github.com/user-attachments/assets/2d6636e6-9e7d-448c-8202-2b264c4a3d13" />
+</p>
+
 Itzushi project is a survival horror server based on the visual novels of corpse party and Japanese folklore, group together and survive the oncoming horrors of the night.
 
-## discord
-
-https://discord.gg/r4zhfxs6e9
+[Discord Server](https://discord.gg/r4zhfxs6e9)
 
 ## License
 
