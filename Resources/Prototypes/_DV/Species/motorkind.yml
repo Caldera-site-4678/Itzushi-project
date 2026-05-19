@@ -1,7 +1,7 @@
 - type: species
   id: Motorkind
   name: species-name-motorkind
-  roundStart: true
+  roundStart: false #Itzushi
   prototype: MobMotorkind
   sprites: MobMotorkindSprites
   defaultSkinTone: "#cdb369"
