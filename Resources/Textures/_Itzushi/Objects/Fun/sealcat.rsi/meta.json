@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sealcat, to be figured out.",
+  "size": {
+    "x": 750,
+    "y": 750
+  },
+  "states": [
+    {
+      "name": "icon"
+    }
+  ]
+}
