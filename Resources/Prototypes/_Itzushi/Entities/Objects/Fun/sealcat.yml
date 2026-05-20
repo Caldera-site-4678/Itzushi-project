@@ -1,0 +1,10 @@
+- type: entity
+  parent: BasePlushie
+  id: SealCat 
+  name: seal cat
+  description: woaaaw it's real!!
+  components:
+  - type: Sprite
+    sprite: _Itzushi/Objects/Fun/sealcat.rsi
+    state: icon
+    scale: 0.0426, 0.0426
