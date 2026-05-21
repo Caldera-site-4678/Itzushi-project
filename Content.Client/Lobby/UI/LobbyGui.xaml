@@ -9,123 +9,326 @@
     xmlns:lobbyUi="clr-namespace:Content.Client.Lobby.UI"
     xmlns:info="clr-namespace:Content.Client.Info"
     xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.Chat.Widgets">
-    <!-- Background -->
-    <TextureRect Access="Public" VerticalExpand="True" HorizontalExpand="True" Name="Background"
-                 Stretch="KeepAspectCovered" />
-    <BoxContainer Name="MainContainer" VerticalExpand="True" HorizontalExpand="True" Orientation="Horizontal"
-                  Margin="10 10 10 10" SeparationOverride="2">
+
+    <TextureRect Access="Public"
+                 Name="Background"
+                 VerticalExpand="True"
+                 HorizontalExpand="True"
+                 Stretch="KeepAspectCovered"
+                 ModulateSelfOverride="#5A5A5A" />
+
+    <BoxContainer Name="MainContainer"
+                  VerticalExpand="True"
+                  HorizontalExpand="True"
+                  Orientation="Horizontal"
+                  Margin="12 12 12 12"
+                  SeparationOverride="4">
+
         <SplitContainer State="Auto" HorizontalExpand="True">
+
             <!-- LHS Controls -->
-            <BoxContainer Name="LeftSide" Orientation="Vertical" SeparationOverride="4" HorizontalExpand="True">
+            <BoxContainer Name="LeftSide"
+                          Orientation="Vertical"
+                          SeparationOverride="4"
+                          HorizontalExpand="True">
+
                 <Control Name="DefaultState" VerticalExpand="True">
+
                     <BoxContainer Name="TopLeft" Orientation="Vertical">
+
                         <!-- Left Top Panel -->
-                        <PanelContainer StyleClasses="BackgroundPanel" HorizontalAlignment="Left" Name="LeftSideTop"
+                        <PanelContainer Name="LeftSideTop"
+                                        StyleClasses="YokaiPanel"
+                                        HorizontalAlignment="Left"
                                         VerticalAlignment="Top">
-                            <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" MaxWidth="800">
-                                <info:LinkBanner Name="LinkBanner" VerticalExpand="false" HorizontalAlignment="Center"
+
+                            <BoxContainer Orientation="Vertical"
+                                          HorizontalAlignment="Center"
+                                          MaxWidth="800"
+                                          Margin="8 8 8 8"
+                                          SeparationOverride="6">
+
+                                <Label Text="LOBBY TERMINAL"
+                                       FontColorOverride="#CFCFCF"
+                                       HorizontalAlignment="Center" />
+
+                                <controls:HLine Thickness="2"
+                                                ModulateSelfOverride="#9A9A9A" />
+
+                                <info:LinkBanner Name="LinkBanner"
+                                                 VerticalExpand="false"
+                                                 HorizontalAlignment="Center"
                                                  Margin="3 3 3 3" />
-                                <controls:StripeBack>
-                                    <BoxContainer Orientation="Horizontal" SeparationOverride="6" Margin="3 3 3 3">
-                                        <cc:UICommandButton Command="observe" Name="ObserveButton" Access="Public"
+
+                                <controls:HLine Thickness="1"
+                                                ModulateSelfOverride="#707070" />
+
+                                <controls:StripeBack ModulateSelfOverride="#121212">
+                                    <BoxContainer Orientation="Horizontal"
+                                                  SeparationOverride="6"
+                                                  Margin="5 5 5 5">
+
+                                        <cc:UICommandButton Command="observe"
+                                                            Name="ObserveButton"
+                                                            Access="Public"
                                                             Text="{Loc 'ui-lobby-observe-button'}"
-                                                            StyleClasses="ButtonBig"
-                                                            WindowType="{x:Type lobbyUi:ObserveWarningWindow}" />
+                                                            StyleClasses="YokaiButton"
+                                                            WindowType="{x:Type lobbyUi:ObserveWarningWindow}"
+                                                            MinHeight="32" />
+
                                         <Label Name="StartTime"
                                                Access="Public"
                                                Align="Left"
-                                               FontColorOverride="{x:Static maths:Color.DarkGray}"
-                                               StyleClasses="LabelBig" HorizontalExpand="True" />
-                                        <!-- Imp manifest button -->
-                                        <Button Name="ManifestButton" Access="Public"
+                                               FontColorOverride="#A8A8A8"
+                                               StyleClasses="LabelBig"
+                                               HorizontalExpand="True" />
+
+                                        <Button Name="ManifestButton"
+                                                Access="Public"
                                                 Text="Manifest"
-                                                StyleClasses="ButtonBig" MinWidth="137" />
-                                        <Button Name="ReadyButton" Access="Public" ToggleMode="True"
+                                                StyleClasses="YokaiButton"
+                                                MinWidth="137"
+                                                MinHeight="32" />
+
+                                        <Button Name="ReadyButton"
+                                                Access="Public"
+                                                ToggleMode="True"
                                                 Text="{Loc 'ui-lobby-ready-up-button'}"
-                                                StyleClasses="ButtonBig" MinWidth="137" />
+                                                StyleClasses="YokaiButton"
+                                                MinWidth="137"
+                                                MinHeight="32" />
                                     </BoxContainer>
                                 </controls:StripeBack>
-                                <RichTextLabel Name="PlaytimeComment" Visible="False" Access="Public" HorizontalAlignment="Center" />
+
+                                <RichTextLabel Name="PlaytimeComment"
+                                               Visible="False"
+                                               Access="Public"
+                                               HorizontalAlignment="Center" />
                             </BoxContainer>
                         </PanelContainer>
-                        <!-- Voting Popups -->
-                        <BoxContainer Orientation="Vertical" SeparationOverride="4" Name="VoteContainer"
-                                      Access="Public" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0 8" />
+
+                        <!-- Voting -->
+                        <BoxContainer Orientation="Vertical"
+                                      SeparationOverride="4"
+                                      Name="VoteContainer"
+                                      Access="Public"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      Margin="0 8" />
                     </BoxContainer>
-                    <!-- Vertical Padding-->
+
                     <Control VerticalExpand="True" />
-                    <!-- Left Bot Panel -->
-                    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                        <info:DevInfoBanner Name="DevInfoBanner" VerticalExpand="false" Margin="3 3 3 3" />
-                        <PanelContainer StyleClasses="BackgroundPanel">
-                            <RichTextLabel Name="LobbySong" Access="Public" HorizontalAlignment="Center" />
+
+                    <!-- Left Bottom Panel -->
+                    <BoxContainer Orientation="Horizontal"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Bottom"
+                                  SeparationOverride="4">
+
+                        <info:DevInfoBanner Name="DevInfoBanner"
+                                            VerticalExpand="false"
+                                            Margin="3 3 3 3" />
+
+                        <PanelContainer StyleClasses="YokaiPanel">
+
+                            <BoxContainer Orientation="Vertical"
+                                          Margin="8 5 8 5"
+                                          SeparationOverride="3">
+
+                                <Label Text="CURRENT AUDIO"
+                                       FontColorOverride="#8F8F8F" />
+
+                                <controls:HLine Thickness="1"
+                                                ModulateSelfOverride="#707070" />
+
+                                <RichTextLabel Name="LobbySong"
+                                               Access="Public"
+                                               HorizontalAlignment="Center" />
+                            </BoxContainer>
                         </PanelContainer>
                     </BoxContainer>
                 </Control>
+
                 <!-- Character setup state -->
-                <!-- This is injected on startup. Funky! -->
-                <Control Access="Public" Visible="False" Name="CharacterSetupState" VerticalExpand="True" />
+                <Control Access="Public"
+                         Visible="False"
+                         Name="CharacterSetupState"
+                         VerticalExpand="True" />
             </BoxContainer>
+
             <!-- Right Panel -->
-            <PanelContainer Name="RightSide" Access="Public" StyleClasses="BackgroundPanel" HorizontalAlignment="Right" VerticalExpand="True"
+            <PanelContainer Name="RightSide"
+                            Access="Public"
+                            StyleClasses="YokaiPanelWhite"
+                            HorizontalAlignment="Right"
+                            MinWidth="520"
+                            VerticalExpand="True"
                             VerticalAlignment="Stretch">
-                <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-                    <!-- Top row -->
-                    <BoxContainer Orientation="Horizontal" MinSize="0 40" Name="HeaderContainer" Access="Public"
-                                  SeparationOverride="4">
-                        <Label Name="ServerName" Access="Public" StyleClasses="LabelHeadingBigger" VAlign="Center"
-                               HorizontalExpand="True" HorizontalAlignment="Center" />
-                    </BoxContainer>
-                    <!-- Gold line -->
-                    <controls:HLine StyleClasses="highlight" Thickness="2" />
-                    <controls:HSpacer Spacing="10" />
-                    <!-- Voting & misc button bar -->
-                    <BoxContainer Orientation="Horizontal" MinSize="0 40" HorizontalAlignment="Right">
-                        <Button Name="AHelpButton" Access="Public" Text="{Loc 'ui-lobby-ahelp-button'}"
-                                StyleClasses="ButtonBig" />
-                        <vote:VoteCallMenuButton Name="CallVoteButton" StyleClasses="ButtonBig" />
-                        <Button Name="OptionsButton" Access="Public" StyleClasses="ButtonBig"
-                                Text="{Loc 'ui-lobby-options-button'}" />
-                        <Button Name="LeaveButton" Access="Public" StyleClasses="ButtonBig"
-                                Text="{Loc 'ui-lobby-leave-button'}" />
-                    </BoxContainer>
-                    <controls:HSpacer Spacing="10" />
-                    <!-- Server info -->
-                    <controls:NanoHeading Text="{Loc 'ui-lobby-server-info-block'}" />
-                    <info:ServerInfo Name="ServerInfo" Access="Public" MinSize="0 30" VerticalExpand="false"
-                                     Margin="3 3 3 3" MaxWidth="400" HorizontalAlignment="Left" />
-                    <Label Name="StationTime" Access="Public" FontColorOverride="{x:Static maths:Color.LightGray}"
-                           Margin="3 3 3 3" HorizontalAlignment="Left" />
-                    <controls:HSpacer Spacing="5" />
-                    <lobbyUi:LobbyCharacterPreviewPanel Name="CharacterPreview" Access="Public" />
-                    <controls:HSpacer Spacing="5" />
-                    <BoxContainer MinHeight="10" />
-                    <!-- Gold line -->
-                    <controls:HLine StyleClasses="highlight" Thickness="2" Access="Public" />
-                    <controls:HSpacer Spacing="10" />
-                    <widgets:ChatBox Name="Chat" Access="Public" VerticalExpand="True" Margin="3 3 3 3" MinHeight="50" />
+
+                <BoxContainer Orientation="Vertical"
+                              HorizontalExpand="True"
+                              Margin="12 10 12 10"
+                              SeparationOverride="8">
+
+                    <!-- Header + top action buttons -->
+                    <PanelContainer StyleClasses="YokaiPanel">
+                        <BoxContainer Orientation="Vertical"
+                                      Margin="8 8 8 8"
+                                      SeparationOverride="6">
+
+                            <BoxContainer Orientation="Vertical"
+                                          MinSize="0 44"
+                                          Name="HeaderContainer"
+                                          Access="Public"
+                                          SeparationOverride="3">
+
+                                <Label Text="SERVER RECORD"
+                                       FontColorOverride="#8F8F8F"
+                                       HorizontalAlignment="Center" />
+
+                                <Label Name="ServerName"
+                                       Access="Public"
+                                       StyleClasses="LabelHeadingBigger"
+                                       VAlign="Center"
+                                       FontColorOverride="#D8D8D8"
+                                       HorizontalExpand="True"
+                                       HorizontalAlignment="Center" />
+                            </BoxContainer>
+
+                            <controls:HLine Thickness="2"
+                                            ModulateSelfOverride="#9A9A9A" />
+
+                            <BoxContainer Orientation="Horizontal"
+                                          MinSize="0 48"
+                                          HorizontalExpand="True"
+                                          SeparationOverride="4">
+
+                                <Button Name="AHelpButton"
+                                        Access="Public"
+                                        Text="{Loc 'ui-lobby-ahelp-button'}"
+                                        StyleClasses="YokaiButton"
+                                        HorizontalExpand="True"
+                                        MinWidth="92"
+                                        MinHeight="38" />
+
+                                <vote:VoteCallMenuButton Name="CallVoteButton"
+                                                         StyleClasses="YokaiButton"
+                                                         HorizontalExpand="True"
+                                                         MinWidth="92"
+                                                         MinHeight="38" />
+
+                                <Button Name="OptionsButton"
+                                        Access="Public"
+                                        StyleClasses="YokaiButton"
+                                        Text="{Loc 'ui-lobby-options-button'}"
+                                        HorizontalExpand="True"
+                                        MinWidth="92"
+                                        MinHeight="38" />
+
+                                <Button Name="LeaveButton"
+                                        Access="Public"
+                                        StyleClasses="YokaiButton"
+                                        Text="{Loc 'ui-lobby-leave-button'}"
+                                        HorizontalExpand="True"
+                                        MinWidth="92"
+                                        MinHeight="38" />
+                            </BoxContainer>
+                        </BoxContainer>
+                    </PanelContainer>
+
+                    <!-- Server info panel -->
+                    <PanelContainer StyleClasses="YokaiPanel">
+                        <BoxContainer Orientation="Vertical"
+                                      Margin="8 8 8 8"
+                                      SeparationOverride="4">
+
+                            <Label Text="SERVER INFO"
+                                   FontColorOverride="#BFBFBF" />
+
+                            <controls:HLine Thickness="1"
+                                            ModulateSelfOverride="#707070" />
+
+                            <info:ServerInfo Name="ServerInfo"
+                                             Access="Public"
+                                             MinSize="0 30"
+                                             VerticalExpand="false"
+                                             Margin="3 3 3 3"
+                                             MaxWidth="400"
+                                             HorizontalAlignment="Left" />
+
+                            <Label Name="StationTime"
+                                   Access="Public"
+                                   FontColorOverride="#A8A8A8"
+                                   Margin="3 3 3 3"
+                                   HorizontalAlignment="Left" />
+                        </BoxContainer>
+                    </PanelContainer>
+
+                    <!-- Character dossier panel -->  ##TOD DO MAKE MORE DOSSIER LIKE! you know what to do
+                    <PanelContainer StyleClasses="YokaiPanelGray">
+                        <BoxContainer Orientation="Vertical"
+                                      Margin="8 8 8 8"
+                                      SeparationOverride="4"
+                                      MinHeight="180">
+
+                            <Label Text="CHARACTER RECORD"
+                                   FontColorOverride="#D0D0D0" />
+
+                            <controls:HLine Thickness="1"
+                                            ModulateSelfOverride="#909090" />
+
+                            <lobbyUi:LobbyCharacterPreviewPanel Name="CharacterPreview"
+                                                                 Access="Public" />
+                        </BoxContainer>
+                    </PanelContainer>
+
+                    <!-- chat panel -->
+                    <PanelContainer StyleClasses="YokaiPanel"
+                                    VerticalExpand="True">
+                        <BoxContainer Orientation="Vertical"
+                                      Margin="8 8 8 8"
+                                      SeparationOverride="4"
+                                      VerticalExpand="True">
+
+                            <Label Text="LOCAL LOG"
+                                   FontColorOverride="#BFBFBF" />
+
+                            <controls:HLine Thickness="1"
+                                            ModulateSelfOverride="#707070" />
+
+                            <widgets:ChatBox Name="Chat"
+                                             Access="Public"
+                                             VerticalExpand="True"
+                                             Margin="3 3 3 3"
+                                             MinHeight="50" />
+                        </BoxContainer>
+                    </PanelContainer>
                 </BoxContainer>
+
+                <!-- Keep directly inside RightSide so it overlays the panel -->
                 <TextureButton Name="CollapseButton"
-                                TexturePath="filled_right_arrow.svg.192dpi"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Top"
-                                Margin="0 2 2 0"
-                                ModulateSelfOverride="#DEDEDE"
-                                Scale="0.5 0.5"/>
+                               TexturePath="filled_right_arrow.svg.192dpi"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Top"
+                               Margin="0 2 2 0"
+                               ModulateSelfOverride="#DEDEDE"
+                               Scale="0.5 0.5" />
             </PanelContainer>
         </SplitContainer>
+
         <PanelContainer Name="ExpandPanel"
-                        StyleClasses="BackgroundPanel"
+                        StyleClasses="YokaiPanel"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Margin="0 2 2 0"
                         Visible="False">
+
             <TextureButton Name="ExpandButton"
-                        TexturePath="filled_left_arrow.svg.192dpi"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        ModulateSelfOverride="#DEDEDE"
-                        Scale="0.5 0.5"/>
+                           TexturePath="filled_left_arrow.svg.192dpi"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           ModulateSelfOverride="#DEDEDE"
+                           Scale="0.5 0.5" />
         </PanelContainer>
     </BoxContainer>
 </lobbyUi:LobbyGui>
