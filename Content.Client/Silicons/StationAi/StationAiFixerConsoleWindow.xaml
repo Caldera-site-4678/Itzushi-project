@@ -164,8 +164,6 @@
                 <Label Text="{Loc 'station-ai-fixer-console-window-flavor-left'}" StyleClasses="WindowFooterText" />
                 <Label Text="{Loc 'station-ai-fixer-console-window-flavor-right'}" StyleClasses="WindowFooterText"
                        HorizontalAlignment="Right" HorizontalExpand="True"  Margin="0 0 5 0" />
-                <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
-                       VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19"/>
             </BoxContainer>
         </BoxContainer>
     </BoxContainer>

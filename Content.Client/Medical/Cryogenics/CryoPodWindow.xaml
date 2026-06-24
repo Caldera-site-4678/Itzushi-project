@@ -27,10 +27,6 @@
             <BoxContainer Orientation="Horizontal"
                           SeparationOverride="10"
                           Margin="8 0 0 8">
-                <TextureRect StyleClasses="NTLogoDark"
-                             VerticalExpand="True"
-                             Stretch="KeepAspectCentered"
-                             SetSize="32 32"/>
                 <BoxContainer Orientation="Vertical"
                               SeparationOverride="-4">
                     <Label Text="{Loc 'cryo-pod-window-product-name'}"

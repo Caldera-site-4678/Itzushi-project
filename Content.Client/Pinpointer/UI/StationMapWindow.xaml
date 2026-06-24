@@ -34,8 +34,6 @@
                 <Label Text="{Loc 'station-map-user-interface-flavor-left'}" StyleClasses="WindowFooterText" />
                 <Label Text="{Loc 'station-map-user-interface-flavor-right'}" StyleClasses="WindowFooterText"
                         HorizontalAlignment="Right" HorizontalExpand="True"  Margin="0 0 2 0" />
-                <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
-                        VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19"/>
             </BoxContainer>
         </BoxContainer>
     </BoxContainer>

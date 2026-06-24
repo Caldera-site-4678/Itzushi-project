@@ -171,12 +171,6 @@
                     HorizontalAlignment="Right"
                     HorizontalExpand="True"
                     Margin="0 0 4 0" />
-
-                <TextureRect StyleClasses="NTLogoDark"
-                    Stretch="KeepAspectCentered"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Right"
-                    SetSize="19 19"/>
             </BoxContainer>
         </BoxContainer>
     </BoxContainer>
