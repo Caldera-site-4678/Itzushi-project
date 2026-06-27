@@ -191,3 +191,23 @@
   # cause they are hostile to them
   - SimpleHostile
   - AllHostile
+  
+  # # Itzushi Add - Errant/Lost Souls -fix dis shit later im getting kfc-pierow
+# - type: npcFaction
+  # id: NpcFactionLostSouls
+  # hostile:
+  # - NanoTrasen
+  # - Syndicate
+  # - SimpleHostile
+  # - SimpleNeutral
+  # - Passive
+  # - PetsNT
+  # - Zombie
+  # - Xeno
+  # - Dragon
+  # - Mouse
+  # - Revolutionary
+  # - AllHostile
+  # - Wizard
+  # - Xenoborg
+  # - SalvageMob
