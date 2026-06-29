@@ -6,13 +6,13 @@
   abstract: true
   description: A soul that strayed too far from the path or was stuck too long in limbo, now roaming in search of your life essence, at all costs.
   components:
-  # - type: NpcFactionMember
-    # factions:
-    # - NpcFactionLostSouls
+  - type: NpcFactionMember
+    factions:
+    - NpcFactionLostSouls
 
-  # - type: HTN
-    # rootTask:
-      # task: SimpleHostileCompound
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
 
   - type: Sprite
     drawdepth: Mobs
@@ -87,6 +87,8 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 2.5
+    weightlessWalkSpeed: 2.5
+    weightlessSprintSpeed: 2.5
 
   - type: MeleeWeapon
     soundHit:
@@ -96,52 +98,85 @@
       types:
         Slash: 20
         Piercing: 10
-   # - type: IgniteOnMeleeHit
-    # fireStacks: 1
 
-#MARK: Lurker //placeholder
+  - type: ReagentOnMeleeHit
+    reagent: Phlogiston
+    quantity: 4
+    chance: 0.33
+
+#MARK: Toxin
 - type: entity
   parent: BaseMobMonsterErrantSoul
-  id: MobMonsterErrantSoulLurker
-  name: lurker errant soul
+  id: MobMonsterErrantSoulToxin
+  name: toxin errant soul
+  description: A soul that strayed too far from the path or was stuck too long in limbo...formally a Chernobyl cleaner, leaking poison and radiation.
   components:
   - type: Sprite
-    layers:
-    - sprite: _Itzushi/Mobs/ErrantSouls/errant_soul_base.rsi
-      state: alive
+    sprite: _Itzushi/Mobs/ErrantSouls/errant_soul_toxin.rsi
 
   - type: MovementSpeedModifier
-    baseWalkSpeed: 5
-    baseSprintSpeed: 5
-
-  - type: MeleeWeapon
-    attackRate: 3
-    damage:
-      types:
-        Slash: 4
-
-
-#MARK: Burner //placeholder
-- type: entity
-  parent: BaseMobMonsterErrantSoul
-  id: MobMonsterErrantSoulBurner
-  name: burner errant soul
-  components:
-  - type: Sprite
-    layers:
-    - sprite: Mobs/Effects/onfire.rsi
-      state: Standing
-      color: "#FF9955"
-    - sprite: _Itzushi/Mobs/ErrantSouls/errant_soul_base.rsi
-      state: alive
-
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 3
-    baseSprintSpeed: 3
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 2.5
+    weightlessWalkSpeed: 2.5
+    weightlessSprintSpeed: 2.5
 
   - type: MeleeWeapon
     attackRate: 1
     damage:
       types:
-        Slash: 15
-        Heat: 15
+        Blunt: 4
+        Poison: 6
+        Radiation: 4
+
+
+#MARK: Rattle
+- type: entity
+  parent: BaseMobMonsterErrantSoul
+  id: MobMonsterErrantSoulRattle
+  name: rattle errant soul
+  description: A soul that strayed too far from the path or was stuck too long in limbo...formally a Spetsnaz with enough cognition left to fill your belly full of lead.
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _Itzushi/Mobs/ErrantSouls/errant_soul_rattle.rsi
+      state: alive
+
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0.6
+    baseSprintSpeed: 0.6
+    weightlessWalkSpeed: 0.6
+    weightlessSprintSpeed: 0.6
+
+  # override the base melee AI with ranged hostile AI
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+
+  # infinite/recharging basic ammo
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.15
+
+  - type: BasicEntityAmmoProvider
+    proto: BulletLightRifle
+    capacity: 30
+    count: 30
+
+  - type: Gun
+    fireRate: 8
+    useKey: false
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    minAngle: 20
+    maxAngle: 60
+    angleIncrease: 10
+    angleDecay: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
+
+  # weak melee backup if homie tries to run up too close
+  - type: MeleeWeapon
+    attackRate: 0.5
+    damage:
+      types:
+        Blunt: 5
